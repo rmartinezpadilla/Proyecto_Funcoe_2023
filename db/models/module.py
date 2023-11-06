@@ -7,6 +7,7 @@ from datetime import datetime
 from typing import Optional
 
 class Modules(BaseModel):
+    id : Optional[str] = None
     module_name : str
     program_id : str
     semester_id : str
