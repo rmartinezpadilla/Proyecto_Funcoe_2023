@@ -2,7 +2,8 @@
 Entidad Usuarios
 """
 from pydantic import BaseModel
-import datetime
+from datetime import datetime
+from typing import Optional
 
 class User(BaseModel):
     cedula : int
@@ -13,5 +14,5 @@ class User(BaseModel):
     password : str
     created_at : datetime    
     last_conection : datetime
-    update_at : datetime
+    update_at : Optional[datetime] = None
     

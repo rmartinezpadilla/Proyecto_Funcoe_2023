@@ -2,7 +2,7 @@
 entindad Pensum
 """
 from pydantic import BaseModel
-import datetime
+from datetime import datetime
 
 class Pensum(BaseModel):
     program_id : str
@@ -10,4 +10,5 @@ class Pensum(BaseModel):
     number_of_classes : int
     value : float
     created_at: datetime
+    update_at : datetime = None
     

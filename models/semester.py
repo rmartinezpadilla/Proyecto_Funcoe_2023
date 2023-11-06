@@ -2,7 +2,7 @@
 Entidad semestre
 """
 from pydantic import BaseModel
-import datetime
+from datetime import datetime
 
 class Semester(BaseModel):
     semester_name : str

@@ -4,7 +4,7 @@ entidad matricula
 """
 from pydantic import BaseModel
 from typing import Optional
-import datetime
+from datetime import datetime
 
 class Enroll(BaseModel):
     student_id : str
@@ -17,4 +17,4 @@ class Enroll(BaseModel):
     quota_number : int
     pay_for_quota : float
     create_at : datetime
-    update_at : datetime
+    update_at : Optional[datetime] = None

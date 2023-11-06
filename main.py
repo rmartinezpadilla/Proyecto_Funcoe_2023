@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import adviser_router, concept_router, day_router, enroll_router, module_router, payments_router, pensum_router, program_router, semester_router, student_router, teacher_router, user_router
+from routers import adviser_router, concept_router, day_router, enroll_router, module_router, payments_router, pensum_router, program_router, semester_router, student_router, teacher_router, user_router, document_type_router
 
 app = FastAPI()
 
@@ -17,6 +17,7 @@ app.include_router(semester_router.router)
 app.include_router(student_router.router)
 app.include_router(teacher_router.router)
 app.include_router(user_router.router)
+app.include_router(document_type_router.router)
 
 @app.get('/')
 async def root():

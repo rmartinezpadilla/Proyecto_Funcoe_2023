@@ -3,12 +3,13 @@ Entidad estudiante
 """
 
 from pydantic import BaseModel
-import datetime
+from datetime import datetime
+from typing import Optional
 
-
-class Estudent(BaseModel):
+class Student(BaseModel):
+    document_type_id : str
     identification_card : int
-    birth_date = datetime
+    birth_date : datetime
     first_name : str
     last_name : str
     municipality : str
@@ -24,4 +25,5 @@ class Estudent(BaseModel):
     working_day : str
     register_number : int
     adviser_id : str
+    update_at : Optional[datetime] = None
     

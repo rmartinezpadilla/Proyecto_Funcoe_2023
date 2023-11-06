@@ -3,7 +3,8 @@ Entidad Pagos
 """
 
 from pydantic import BaseModel
-import datetime
+from datetime import datetime
+from typing import Optional
 
 class Payments(BaseModel):
     enroll_id : str
@@ -11,4 +12,4 @@ class Payments(BaseModel):
     value : float
     pyament_date : datetime
     created_at : datetime
-    update_at : datetime
+    update_at : Optional[datetime] = None
