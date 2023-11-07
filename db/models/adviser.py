@@ -7,7 +7,8 @@ from datetime import datetime
 from typing import Optional
 
 
-class Adviser(BaseModel):
+class Adviserdb(BaseModel):
+    id : Optional[str] = None
     document_type : str
     identification_card : int
     first_name : str
@@ -16,5 +17,3 @@ class Adviser(BaseModel):
     created_at : datetime
     updated_at:  Optional[datetime] = None
     
-
-
