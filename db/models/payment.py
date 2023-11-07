@@ -1,14 +1,16 @@
 """ 
-Entidad modulos
+Entidad Pagos
 """
 
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional
 
-class Modules(BaseModel):
-    module_name : str
-    program_id : str
-    semester_id : str
+class Payments(BaseModel):
+    id : Optional[str] = None
+    enroll_id : str
+    concept_id : str
+    value : float
+    pyament_date : datetime
     created_at : datetime
     update_at : Optional[datetime] = None
