@@ -13,8 +13,8 @@ class Adviser(BaseModel):
     first_name : str
     last_name : str
     phone : int
-    create_at : datetime
-    update_at:  Optional[datetime] = None
+    created_at : datetime
+    updated_at:  Optional[datetime] = None
     
 
 
