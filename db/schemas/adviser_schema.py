@@ -1,9 +1,9 @@
 # Creamos esta clase para poder tomar la consulta de la base de datos y convertirla en un objteo de tipo  Asesor (adviser)
 from datetime import datetime
 
-def adviser_schema(adviser) -> dict:
+def adviser_schema(adviser : tuple) -> dict:
     return {
-            'id' : adviser[0],
+            'id' : adviser['uuid'],
             'document_type' : adviser[1],
             'identification_card' : adviser[2],
             'first_name' : adviser[3],

@@ -17,11 +17,10 @@ async def adviser(indentificacion : int):
 @router.post('/create/', response_model = adv, status_code=status.HTTP_201_CREATED)
 async def create_adviser(adv : adv):
     
-    if type(search_adviser(adv.identification_card)) == tuple:
-    #if len(search_adviser(adv.identification_card)) > 0 | :
-         raise HTTPException(
-            status_code=status.HTTP_404_NOT_FOUND, detail=f'El asesor con número de cédula {adv.identification_card} ya existe'
-         )
+    if type(search_adviser(adv.identification_card)) == adv:    
+        raise HTTPException(
+           status_code=status.HTTP_404_NOT_FOUND, detail=f'El asesor con número de cédula {adv.identification_card} ya existe'
+        )
                       
     adv.id = str(uuid())
     cursor = conn.cursor()
@@ -62,6 +61,7 @@ def search_adviser(identification : int):
     cursor.execute(query, (identification,))
     my_adviser = cursor.fetchone() 
     #print(my_adviser)  
-    return my_adviser
+    #print(adv(adviser_schema(my_adviser)))
+    return adv(**adviser_schema(my_adviser))
     
     

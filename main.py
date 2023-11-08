@@ -22,3 +22,8 @@ app.include_router(document_type_router.router)
 @app.get('/')
 async def root():
     return {'Mensaje' : 'Estás en la API de Funcoe Soft'}
+
+if __name__ == "__main__":
+    import uvicorn
+
+    uvicorn.run(app, host="localhost", port=8000)
