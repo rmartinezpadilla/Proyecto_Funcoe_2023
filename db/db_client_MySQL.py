@@ -10,3 +10,10 @@ db_config = {
 
 # Create a connection to the database
 conn = MySQLdb.connect(**db_config)
+
+#librerías
+# pip install fastapi[all]
+# pip install sqlalchemy
+# pip install mysql
+# pip install mysql-connector-python-rf
+# pip install uvicorn[standard]
