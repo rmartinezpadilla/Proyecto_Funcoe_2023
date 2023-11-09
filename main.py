@@ -1,29 +1,30 @@
 from fastapi import FastAPI
-from routers import adviser_router, concept_router, day_router, enroll_router, module_router, payments_router, pensum_router, program_router, semester_router, student_router, teacher_router, user_router, document_type_router
+from fastapi.params import Depends
+from typing import List
+#from db.models.adviser import Adviserdb as adv
+from db.models import adviser
+from starlette.responses import RedirectResponse
+from db.connection_to_MySQL import SessionLocal, engine, Base
+from sqlalchemy.orm import Session
+
+adviser.Base.metadata.create_all(bind = engine)
+
+
 
 app = FastAPI()
 
+def get_db():
+    try:
+        db =  SessionLocal()
+        yield db                
+    except:
+        db.close()
 
-# Incluir routers de las entidades
-app.include_router(adviser_router.router)
-app.include_router(concept_router.router)
-app.include_router(day_router.router)
-app.include_router(enroll_router.router)
-app.include_router(module_router.router)
-app.include_router(payments_router.router)
-app.include_router(pensum_router.router)
-app.include_router(program_router.router)
-app.include_router(semester_router.router)
-app.include_router(student_router.router)
-app.include_router(teacher_router.router)
-app.include_router(user_router.router)
-app.include_router(document_type_router.router)
+# @app.get('/')
+# async def main():
+#     return RedirectResponse(url='/docs/')
 
-@app.get('/')
-async def root():
-    return {'Mensaje' : 'Estás en la API de Funcoe Soft'}
-
-if __name__ == "__main__":
-    import uvicorn
-
-    uvicorn.run(app, host="localhost", port=8000)
+@app.get('/advisers/')
+async def show_advisers(db : Session=Depends(get_db)):
+    advisers =  db.query(adviser.Adviserdb).all()
+    return advisers

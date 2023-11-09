@@ -16,5 +16,8 @@ class Adviser(BaseModel):
     created_at : datetime
     updated_at:  Optional[datetime] = None
     
+    class Config:
+        orm_mode = True
+    
 
 
